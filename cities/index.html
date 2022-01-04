@@ -14,11 +14,72 @@
 </head>
 
 <body>
+
+    <main class="container">
+        <section class="left-container">
+            <div class="welcome">
+                <h2>Welcome to <span id="name-output">...</span></h2>
+            </div>
     
-    <button id="logout">Logout</button>
-    <main>
-        <h1>You are logged in!</h1>
+            <div class="images">
+                <img class="waterfront-img" />
+                <img class="skyline-img" />
+                <img class="castle-img"/>
+            </div>
+    
+        </section>
+    
+        <section class="right-container">
+            <div>
+                <input placeholder="Name Your City" id="name-input">
+                <button id="name-button">add</button>
+            </div>
+            <div>
+                <input placeholder="Your City Slogan" id="slogan-input">
+                <button id="slogan-button">add</button>
+            </div>
+    
+            <div>
+                <select id="waterfront-dropdown">
+                    <option value="0">Choose a Waterfront:</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+    
+            <div>
+                <select id="skyline-dropdown">
+                    <option value="0">Choose a Skyline:</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+    
+            <div>
+                <select id="castle-dropdown">
+                    <option value="0">Choose a Castle:</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+    
+            <div class="slogan-container">
+                <p id="slogan-output"></p>
+            </div>
+    
+            <button id="logout">Logout</button>
+            <span>
+                <h6>You are logged in!</h6>
+            </span>
+    
+        </section>
+
     </main>
+    
+   
     
     <script type="module" src="./cities.js"></script>
 </body>
