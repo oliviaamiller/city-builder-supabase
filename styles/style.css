@@ -16,12 +16,17 @@ html, body {
 }
 
 .left-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     width: 500px;
     height: auto;
+    padding: 20px
 
 }
 
-.images {
+.images img {
     width: auto;
-    height: 100px;
+    height: 250px;
 }
