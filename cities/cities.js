@@ -54,11 +54,18 @@ function displayCity(city) {
     // change the image src for the castle img
     castleImgEl.src = `.../assets/castle-${city.castle_id}.png`;
 
-    // loop through slogans and render and append each slogan to the slogan div
+    // loop through slogans and render and append each slogan to the slogan div and clear the dom
+    sloganOutputEl.textContent = '';
 
+    for (let slogan of city.slogans) {
+        const sloganEl = document.createElement('p');
 
+        sloganEl.classList.add('slogan');
 
+        sloganEl.textContent = slogan;
 
+        sloganOutputEl.append(sloganEl);
+    }
 
 }
 
