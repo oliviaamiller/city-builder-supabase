@@ -39,6 +39,33 @@ export async function logout() {
     return window.location.href = '../';
 }
 
+
+export async function fetchCity() {
+    const currentUserId = client.auth.user().id;
+
+    const response = await client
+        .from('cities')
+        .select()
+        .match({ user_id: currentUserId })
+        .single();
+
+    return checkError(response);
+    
+}
+
+export async function createDefaultCity() {
+    const response = await client
+        .from('cities')
+        .insert([{
+            name: '',
+            waterfront: '',
+            skyline: '',
+            castle: '',
+            slogans: [],
+        }]);
+    return checkError(response);
+}
+
 function checkError({ data, error }) {
     return error ? console.error(error) : data;
 }
