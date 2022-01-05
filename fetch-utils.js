@@ -53,8 +53,6 @@ export async function fetchCity() {
 
 export async function createDefaultCity() {
 
-    const user = await getUser();
-
     const response = await client
         .from('cities')
         .insert([{
