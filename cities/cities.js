@@ -8,18 +8,16 @@ import {
 
 checkAuth();
 
-const nameInputEl = document.getElementById('name-input');
-const nameButtonEl = document.getElementById('name-button');
-const sloganInputEl = document.getElementById('slogan-input');
-const sloganButtonEl = document.getElementById('slogan-button');
-const waterfrontDropdownEl = document.getElementById('waterfront-dropdown');
-const skylineDropdownEl = document.getElementById('skyline-dropdown');
-const castleDropdownEl = document.getElementById('castle-dropdown');
-const nameOutputEl = document.getElementById('name-output');
-const sloganOutputEl = document.getElementById('slogan-output');
-const waterfrontImgEl = document.getElementById('waterfront-img');
-const skylineImgEl = document.getElementById('skyline-img');
-const castleImgEl = document.getElementById('castle-img');
+const nameFormEl = document.querySelector('.name-input');
+const sloganFormEl = document.querySelector('.slogan-input');
+const waterfrontDropdownEl = document.querySelector('#waterfront-dropdown');
+const skylineDropdownEl = document.querySelector('#skyline-dropdown');
+const castleDropdownEl = document.querySelector('#castle-dropdown');
+const nameOutputEl = document.querySelector('#name-output');
+const sloganOutputEl = document.querySelector('#slogan-output');
+const waterfrontImgEl = document.querySelector('#waterfront-img');
+const skylineImgEl = document.querySelector('#skyline-img');
+const castleImgEl = document.querySelector('#castle-img');
 
 
 window.addEventListener('load', async() => {
@@ -37,6 +35,20 @@ window.addEventListener('load', async() => {
     }
 });
 
+
+nameFormEl.addEventListener('submit', async(e) => {
+    e.preventDefault();
+
+    // update the name column for this city in the database
+
+    // fresh fetch
+
+    // display name 
+
+
+
+
+});
 
 
 

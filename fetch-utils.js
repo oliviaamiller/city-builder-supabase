@@ -62,7 +62,8 @@ export async function createDefaultCity() {
             skyline: '',
             castle: '',
             slogans: [],
-        }]);
+        }])
+        .single();
     return checkError(response);
 }
 
