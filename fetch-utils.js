@@ -41,12 +41,10 @@ export async function logout() {
 
 
 export async function fetchCity() {
-    const currentUserId = client.auth.user().id;
-
+    
     const response = await client
         .from('cities')
         .select()
-        .match({ user_id: currentUserId })
         .single();
 
     return checkError(response);
@@ -58,14 +56,109 @@ export async function createDefaultCity() {
         .from('cities')
         .insert([{
             name: '',
-            waterfront: '',
-            skyline: '',
-            castle: '',
+            waterfront_id: '',
+            skyline_id: '',
+            castle_id: '',
             slogans: [],
         }])
         .single();
     return checkError(response);
 }
+
+export async function updateName(newName) {
+
+    //fetch logged in user to have access to their info
+    const user = await getUser();
+
+    const response = await client 
+    // update in the cities table
+        .from('cities')
+    // update the name 
+        .update({ name: newName })
+    // for this specific user
+        .match({ user_id: user.user.id })
+    // only for this one key, don't return an array
+        .single();
+
+    return checkError(response);
+
+}
+
+export async function updateSlogans(newSlogan) {
+
+    //fetch logged in user to have access to their info
+    const user = await getUser();
+
+    const response = await client
+    //update in the cities table
+        .from('cities')
+    //update the slogans
+        .update({ slogans: newSlogan })
+    // for this specific user
+        .match({ user_id: user.user.id })
+    // only for this one key, don't return array
+        .single();
+
+    return checkError(response);
+}
+
+export async function updateWaterfront(newWaterfront) {
+
+    //fetch logged in user to have access to their info
+    const user = await getUser();
+
+    const response = await client
+    //update in the cities table
+        .from('cities')
+    //update the waterfront
+        .update({ waterfront_id: newWaterfront })
+    // for this specific user
+        .match({ user_id: user.user.id })
+    // only for this key, don't return array
+        .single();
+
+    return checkError(response);
+}
+
+export async function updateSkyline(newSkyline) {
+
+    //fetch logged in user to have access to their info
+    const user = await getUser();
+
+    const response = await client
+    //update in the cities table
+        .from('cities')
+    //update the waterfront
+        .update({ skyline_id: newSkyline })
+    // for this specific user
+        .match({ user_id: user.user.id })
+    // only for this key, don't return array
+        .single();
+
+    return checkError(response);
+}
+
+export async function updateCastle(newCastle) {
+
+    //fetch logged in user to have access to their info
+    const user = await getUser();
+
+    const response = await client
+    //update in the cities table
+        .from('cities')
+    //update the waterfront
+        .update({ castle_id: newCastle })
+    // for this specific user
+        .match({ user_id: user.user.id })
+    // only for this key, don't return array
+        .single();
+
+    return checkError(response);
+}
+
+
+
+
 
 function checkError({ data, error }) {
     return error ? console.error(error) : data;

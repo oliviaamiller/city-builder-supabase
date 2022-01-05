@@ -3,13 +3,18 @@ import {
     logout,
     fetchCity,
     createDefaultCity,
+    updateName,
+    updateSlogans,
+    updateWaterfront,
+    updateCastle,
+    updateSkyline,
         
 } from '../fetch-utils.js';
 
 checkAuth();
 
-const nameFormEl = document.querySelector('.name-input');
-const sloganFormEl = document.querySelector('.slogan-input');
+const nameFormEl = document.querySelector('.name-form');
+const sloganFormEl = document.querySelector('.slogan-form');
 const waterfrontDropdownEl = document.querySelector('#waterfront-dropdown');
 const skylineDropdownEl = document.querySelector('#skyline-dropdown');
 const castleDropdownEl = document.querySelector('#castle-dropdown');
@@ -39,15 +44,60 @@ window.addEventListener('load', async() => {
 nameFormEl.addEventListener('submit', async(e) => {
     e.preventDefault();
 
-    // update the name column for this city in the database
+    // go get the name from the form
+    const data = new FormData(nameFormEl);
+
+    const nameInput = data.get('name-input');
 
     // fresh fetch
+    const newName = await updateName(nameInput);
 
-    // display name 
+    // display name
+    displayCity(newName); 
+});
 
 
+sloganFormEl.addEventListener('submit', async(e) => {
+    e.preventDefault();
 
+    // go get the slogan from the form 
+    const data = new FormData(sloganFormEl);
 
+    const sloganInput = data.get('slogan-input');
+
+    // get the old city and it's existing slogans from supabase
+    const city = await fetchCity();
+
+    // push the new slogan into the array of existing slogans
+    city.slogans.push(sloganInput);
+
+    const newSlogan = await updateSlogans(city.slogans);
+
+    displayCity(newSlogan);
+});
+
+waterfrontDropdownEl.addEventListener('change', async() => {
+    //when dropdown value is selected, update that value in supabase and refresh the display
+
+    const newWaterfront = await updateWaterfront(waterfrontDropdownEl.value);
+
+    displayCity(newWaterfront);
+});
+
+skylineDropdownEl.addEventListener('change', async() => {
+    //when dropdown value is selected, update that value in supabase and refresh the display
+
+    const newSkyline = await updateSkyline(skylineDropdownEl.value);
+
+    displayCity(newSkyline);
+});
+
+castleDropdownEl.addEventListener('change', async() => {
+    //when dropdown value is selected, update that value in supabase and refresh the display
+
+    const newCastle = await updateCastle(castleDropdownEl.value);
+
+    displayCity(newCastle);
 });
 
 
