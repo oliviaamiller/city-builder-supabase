@@ -111,10 +111,10 @@ function displayCity(city) {
     waterfrontImgEl.src = `../assets/waterfront-${city.waterfront_id}.png`;
 
     // change the image src for the skyline img
-    skylineImgEl.src = `.../assets/skyline-${city.skyline_id}.png`;
+    skylineImgEl.src = `../assets/skyline-${city.skyline_id}.png`;
 
     // change the image src for the castle img
-    castleImgEl.src = `.../assets/castle-${city.castle_id}.png`;
+    castleImgEl.src = `../assets/castle-${city.castle_id}.png`;
 
     // loop through slogans and render and append each slogan to the slogan div and clear the dom
     sloganOutputEl.textContent = '';

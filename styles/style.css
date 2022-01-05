@@ -20,3 +20,8 @@ html, body {
     height: auto;
 
 }
+
+.images {
+    width: auto;
+    height: 100px;
+}

@@ -52,13 +52,16 @@ export async function fetchCity() {
 }
 
 export async function createDefaultCity() {
+
+    const user = await getUser();
+
     const response = await client
         .from('cities')
         .insert([{
             name: '',
-            waterfront_id: '',
-            skyline_id: '',
-            castle_id: '',
+            waterfront_id: 0,
+            skyline_id: 0,
+            castle_id: 0,
             slogans: [],
         }])
         .single();
