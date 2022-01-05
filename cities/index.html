@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/reset.css">
+    <link rel="stylesheet" href="../styles/style.css">
+    <link rel="stylesheet" href="../styles/home.css">
+    <title>City Builder</title>
+</head>
+
+<body>
+
+    <main class="container">
+        <section class="left-container">
+            <div class="welcome">
+                <h2>Welcome to <span id="name-output">...</span></h2>
+            </div>
+    
+            <div class="images">
+                <img id="waterfront-img" />
+                <img id="skyline-img" />
+                <img id="castle-img"/>
+            </div>
+    
+        </section>
+    
+        <section class="right-container">
+            <div>
+                <form class="name-form">
+                    <input placeholder="Name Your City" name="name-input">
+                    <button id="name-button">add</button>
+                </form>
+            </div>
+            <div>
+                <form class="slogan-form">
+                    <input placeholder="Your City Slogan" name="slogan-input">
+                    <button id="slogan-button">add</button>
+                </form>
+            </div>
+    
+            <div>
+                <select id="waterfront-dropdown">
+                    <option value="0">Choose a Waterfront:</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+    
+            <div>
+                <select id="skyline-dropdown">
+                    <option value="0">Choose a Skyline:</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+    
+            <div>
+                <select id="castle-dropdown">
+                    <option value="0">Choose a Castle:</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div>
+    
+            <div class="slogan-container">
+                <p id="slogan-output"></p>
+            </div>
+    
+            <button id="logout">Logout</button>
+            <span>
+                <h6>You are logged in!</h6>
+            </span>
+    
+        </section>
+
+    </main>
+    
+   
+    
+    <script type="module" src="./cities.js"></script>
+</body>
+
+</html>
